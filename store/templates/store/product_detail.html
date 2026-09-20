@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+</head>
+
+<body>
+
+    <h1>{{ product.name }}</h1>
+
+    <p>{{ product.description }}</p>
+
+    <p>Price: {{ product.price }} RWF</p>
+
+    <p>Stock: {{ product.stock }}</p>
+
+    <br>
+
+    <a href="{% url 'add_to_cart' id=product.id %}">
+        Add to Cart 🛒
+    </a>
+
+    <br><br>
+
+    <a href="/">Back to Products</a>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HHT LTD Online Shop</title>
+</head>
+
+<body>
+
+    <h1>HHT LTD Online Shop</h1>
+
+    {% for product in products %}
+
+        <div>
+            <h2>{{ product.name }}</h2>
+
+            <p>{{ product.description }}</p>
+
+            <p>Price: {{ product.price }} RWF</p>
+
+            <p>Stock: {{ product.stock }}</p>
+
+            <a href="{% url 'product_detail' id=product.id %}">
+                View Details
+            </a>
+        </div>
+
+        <hr>
+
+    {% empty %}
+
+        <p>No products available.</p>
+
+    {% endfor %}
+
+</body>
+</html>

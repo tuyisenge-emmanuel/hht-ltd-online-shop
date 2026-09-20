@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+
+    <h1>Shopping Cart 🛒</h1>
+
+    {% if products %}
+
+        {% for item in products %}
+
+            <div>
+
+                <h2>{{ item.product.name }}</h2>
+                <br>
+
+<a href="{% url 'checkout' %}">
+    Proceed to Checkout
+</a>
+
+                <p>
+                    Price: {{ item.product.price }} RWF
+                </p>
+
+                <p>
+                    Quantity: {{ item.quantity }}
+                </p>
+
+                <p>
+                    Subtotal: {{ item.subtotal }} RWF
+                </p>
+
+                <a href="{% url 'decrease_quantity' id=item.product.id %}">
+                    −
+                </a>
+
+                <a href="{% url 'increase_quantity' id=item.product.id %}">
+                    +
+                </a>
+
+                <br><br>
+
+                <a href="{% url 'remove_from_cart' id=item.product.id %}">
+                    Remove
+                </a>
+
+            </div>
+
+            <hr>
+
+        {% endfor %}
+
+        <h2>Total: {{ total }} RWF</h2>
+
+    {% else %}
+
+        <p>Your cart is empty.</p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/">Continue Shopping</a>
+
+</body>
+</html>

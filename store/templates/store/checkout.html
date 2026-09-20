@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+</head>
+
+<body>
+
+    <h1>Checkout</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Full Name:</label><br>
+        <input type="text" name="customer_name" required>
+
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="customer_email" required>
+
+        <br><br>
+
+        <label>Phone:</label><br>
+        <input type="text" name="customer_phone" required>
+
+        <br><br>
+
+        <label>Address:</label><br>
+        <textarea name="customer_address" required></textarea>
+
+        <br><br>
+
+        <h3>Total: {{ total }} RWF</h3>
+
+        <button type="submit">
+            Place Order
+        </button>
+    </form>
+
+    <br>
+
+    <a href="/cart/">Back to Cart</a>
+
+</body>
+</html>
